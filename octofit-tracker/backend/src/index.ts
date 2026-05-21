@@ -1,9 +1,9 @@
 import express from 'express';
-import usersRouter from './routes/users';
-import teamsRouter from './routes/teams';
-import activitiesRouter from './routes/activities';
-import leaderboardRouter from './routes/leaderboard';
-import workoutsRouter from './routes/workouts';
+import usersRouter from './routes/users.js';
+import teamsRouter from './routes/teams.js';
+import activitiesRouter from './routes/activities.js';
+import leaderboardRouter from './routes/leaderboard.js';
+import workoutsRouter from './routes/workouts.js';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
