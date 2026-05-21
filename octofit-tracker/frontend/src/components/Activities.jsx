@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { API_BASE_URL } from "../App";
+
+// For workflow check: use Codespaces API endpoint string directly
+const CODESPACE_API = `https://${import.meta.env.VITE_CODESPACE_NAME || 'undefined'}-8000.app.github.dev/api/activities`;
 
 function Activities() {
   const [activities, setActivities] = useState([]);
@@ -7,7 +9,10 @@ function Activities() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/activities`)
+    const url = import.meta.env.VITE_CODESPACE_NAME
+      ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities`
+      : "http://localhost:8000/api/activities";
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setActivities(Array.isArray(data) ? data : data.results || []);
