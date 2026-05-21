@@ -23,7 +23,7 @@ app.use('/api/workouts', workoutsRouter);
 
 // Codespaces-aware API URL support
 const apiUrl = process.env.CODESPACE_NAME
-  ? `https://${process.env.CODESPACE_NAME}-8000.githubpreview.dev`
+  ? `https://${process.env.CODESPACE_NAME}-8000.app.github.dev`
   : `http://localhost:${PORT}`;
 
 app.get('/', (_req, res) => {
@@ -35,6 +35,9 @@ mongoose.connect(MONGO_URI)
     app.listen(PORT, () => {
       console.log(`Connected to MongoDB`);
       console.log(`Server running at ${apiUrl}`);
+      console.log('Verify endpoints with:');
+      console.log(`curl ${apiUrl}/api/users`);
+      console.log(`curl ${apiUrl}/api/activities`);
     });
   })
   .catch((err) => {
