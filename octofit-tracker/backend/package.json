@@ -1,0 +1,35 @@
+{
+  "name": "skills-build-applications-w-copilot-agent-mode",
+  "version": "1.0.0",
+  "description": "<img src=\"https://octodex.github.com/images/Professortocat_v2.png\" align=\"right\" height=\"200px\" />",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atiamzon-nimbus/skills-build-applications-w-copilot-agent-mode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/atiamzon-nimbus/skills-build-applications-w-copilot-agent-mode/issues"
+  },
+  "homepage": "https://github.com/atiamzon-nimbus/skills-build-applications-w-copilot-agent-mode#readme",
+  "dependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.9.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.6.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^6.0.3"
+  }
+}
