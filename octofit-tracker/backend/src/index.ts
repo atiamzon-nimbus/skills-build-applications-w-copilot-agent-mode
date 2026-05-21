@@ -8,7 +8,6 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 const app = express();
-const PORT = 8000;
 const MONGO_URI = 'mongodb://localhost:27017/octofit_db';
 
 
@@ -21,10 +20,7 @@ app.use('/api/activities', activitiesRouter);
 app.use('/api/leaderboard', leaderboardRouter);
 app.use('/api/workouts', workoutsRouter);
 
-// Codespaces-aware API URL support
-const apiUrl = process.env.CODESPACE_NAME
-  ? `https://${process.env.CODESPACE_NAME}-8000.app.github.dev`
-  : `http://localhost:${PORT}`;
+
 
 app.get('/', (_req, res) => {
   res.json({ message: 'Octofit Tracker API', apiUrl });
@@ -32,15 +28,11 @@ app.get('/', (_req, res) => {
 
 mongoose.connect(MONGO_URI)
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Connected to MongoDB`);
-      console.log(`Server running at ${apiUrl}`);
-      console.log('Verify endpoints with:');
-      console.log(`curl ${apiUrl}/api/users`);
-      console.log(`curl ${apiUrl}/api/activities`);
-    });
+    console.log('Connected to MongoDB');
   })
   .catch((err) => {
     console.error('MongoDB connection error:', err);
     process.exit(1);
   });
+
+export default app;
